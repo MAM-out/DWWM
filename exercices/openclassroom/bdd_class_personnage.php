@@ -75,6 +75,7 @@ class Personnage
       $this->_forcePerso = $forcePerso;
     }
   }
+   
   
   public function setDegats($degats)
   {
