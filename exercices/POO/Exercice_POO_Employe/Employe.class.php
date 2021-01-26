@@ -5,12 +5,12 @@ class Employe
 {
     private $_nom;
     private $_prenom;
-    private $_date_embauche;
+    private $_date_embauche = 'd/m/Y';
     private $_fc_poste;
     private $_salaire_brut;
     private $_service_employe;
 
-    // methode pour renvoyer les infos employes 
+    /*methode pour renvoyer les infos employes 
     public function infoEmploye()
     {
         echo $this->_nom;
@@ -24,17 +24,9 @@ class Employe
         echo $this->_salaire_brut;
         echo ' ';
         echo $this->_service_employe;
-    }
-
-    // methode combien d'années en fc ?
-    public function combienAnnees()
-    {
-       // $date = date("d/m/Y");
-    }
-
-    
+    }*/
+        
     // creation d'un constructeur initialisateur
-
     public function __construct($nom, $prenom, $date_embauche, $fc_poste, $salaire_brut, $service_employe) 
 
     {
@@ -46,7 +38,7 @@ class Employe
         $this->_service_employe = $service_employe; 
     }
 
-    // accesseurs renvoyant les contenus d attributs
+    // les GET / setters renvoyant les contenus d attributs | récupérer la valeur contenue dans la propriété
     public function nom()
     {
         return $this->_nom;
@@ -77,7 +69,7 @@ class Employe
         return $this->_service_employe;
     }
 
-    // accesseurs renvoyant les contenus d attributs
+    // les SET / accesseurs renvoyant les contenus d attributs
     public function setNom($nom)
     {
         $this->_nom = $nom;
@@ -107,31 +99,46 @@ class Employe
     {
         $this->_service_employe = $service_employe;
     }
+      
+    // methode combien d'années en fc ?
+    /*si le mois d'entrée est antérieur au mois actuel, ou bien, si le jour d'entrée est inférieur ou égal au jour actuel lorsque le mois d'entrée est égal au mois actuel, alors l’ancienneté est la différence entre l’année en cours et l’année d'entrée.
+    sinon l’ancienneté est la différence entre l'(année en cours – 1) et l’année d'entrée.
+    */
+    public function anciennete()
+    {
+        $this->_date_embauche = $date_embauche; 
+        $am = explode('/', $date_embauche);
+        $an = explode('/', date('d/m/Y'));
+        if(($am[1] < $an[1]) || (($am[1] == $an[1]) && ($am[0] <= $an[0]))) return $an[2] - $am[2];
+        return $an[2] - $am[2] - 1;
+        
+       
+
+    }
+
+    // methode calcul de la prime 
+      public function calculPrime($prime)
+      {
+          if ($anciennete<5)
+          {
+              $prime =  ($salaire_brut * 0.02);
+          }
+          else if ($anciennete<10)
+          {
+              $prime =  ($salaire_brut * 0.05);
+          }
+          else
+          {
+              $prime =  ($salaire_brut * 0.1);
+          }
+            return $prime;
+      }
+ 
+
 
 } // fin classe
 
-// crea Employes
-$employe1 = new Employe('Loper','Dave','13/03/15', 'Conducteur travaux', '35k', 'Service Travaux');
-//
-$employe2 = new Employe('Geris','Mathieu','25/03/20', 'Comptable', '30k', 'Service Support');
-// 
-$employe3 = new Employe('Henri','Marie','25/05/12', 'Assitante BE', '25k', 'Service Travaux');
-// 
-$employe4 = new Employe('Namaris','Pauline','04/05/20', 'Account Manager', '35k', 'Service Support');
-// 
-$employe5 = new Employe('Rose','Paul','13/03/15', 'Responsable atelier','40k', 'Service Production');
-// 
-// afficher les infos
-echo $employe1->infoEmploye();
-echo '<br> ';
-echo $employe2->infoEmploye();
-echo '<br> ';
-echo $employe3->infoEmploye();
-echo '<br> ';
-echo $employe4->infoEmploye();
-echo '<br> ';
-echo $employe5->infoEmploye();
-echo '<br> ';
+
 ?>
 
 
