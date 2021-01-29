@@ -5,7 +5,7 @@ class Produits_tableau extends CI_Controller
 // le controleur
     {
         public function liste()
-            {
+         {
             // Déclaration du tableau associatif à transmettre à la vue
             $aView = array("prenom"=>"Dave", "nom"=>"&nbsp; Loper");     
 
@@ -33,12 +33,11 @@ class Produits_tableau extends CI_Controller
 
             // Appel de la vue avec transmission du tableau  
             $this->load->view('liste', $aView);
-
             $this->load->view('footer');
-            }
+        }
 
         public function modifier()
-            {
+        {
             // Chargement de la librairie 'database'
             $this->load->database(); 
 
@@ -57,23 +56,17 @@ class Produits_tableau extends CI_Controller
 
                 if ($this->form_validation->run() == FALSE)
                 { // Echec de la validation, on réaffiche la vue formulaire 
-
                 $this->load->view('modifier', $aView);
-
                 }
                 else
                 { // La validation a réussi, nos valeurs sont bonnes, on peut modifier en base
-
                     $this->db->where('pro_id', $id);
-                    $this->db->update('produits', $data);
-                            
+                    $this->db->update('produits', $data);     
                     redirect("produits/liste");
                 }       
-            } 
             else 
             { // 1er appel de la page: affichage du formulaire
                 $this->load->view('modifier', $aView);
-
             }
-
+        }
     }
