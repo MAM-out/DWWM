@@ -1,4 +1,8 @@
-<?php echo form_open(); ?>
+
+<div class="container">
+    <div class="row mx-auto">
+        <div class="col-12 ">  
+        <?php echo form_open(); ?>
 
  <div class="form-group">
     <label for="pro_libelle">Libellé</label>
@@ -12,3 +16,6 @@
 
  <button type="submit" class="btn btn-dark">Ajouter</button>    
  </form>
+ </div> 
+ </div>
+ </div>
