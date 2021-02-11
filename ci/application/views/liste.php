@@ -3,10 +3,7 @@
     <div class="row mx-auto">
         <div class="col-12 ">  
             <h1>Exercices</h1>
-            <p> Réalisez l'intégralité du formulaire d'ajout d'un produit Jarditou. Ne faites pas l'upload de l'image pour le moment.
-            </p>
-            <p>Réalisez l'intégralité du formulaire de modification d'un produit Jarditou. Ne faites pas l'upload de l'image pour le moment.
-            </p>
+      
         </div>
     </div>
     <!--Liste des produits -->

@@ -7,11 +7,12 @@ function connexionBase()
    $password="";    // Le Password pour vous identifier auprès du serveur
    $base = "jarditou";  // La bdd avec laquelle vous voulez travailler 
 
+
    try 
    {
-        $db = new PDO('mysql:host='.$host. ';charset=utf8;port=3308;dbname=' $base, $login, $password);
-        return $db;*/
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $db = new PDO('mysql:host=' .$host. ';charset=utf8;port=3308;dbname=' .$base, $login, $password);
+    return $db; // n'oublies pas de renvoyer la BDD !!!
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } 
     catch (Exception $e) 
     {

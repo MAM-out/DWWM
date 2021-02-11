@@ -7,6 +7,8 @@ class Produits extends CI_Controller
     {
     $this->load->view('header');
     $this->load->view('footer');
+    
+    
     $this->load->database();
 
     $results = $this->db->query("SELECT * FROM produits");  

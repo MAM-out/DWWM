@@ -1,3 +1,11 @@
+<?php
+// On démarre la session AVANT d'écrire du code HTML
+//session_start();
+
+
+?>
+
+
 <!-- application/views/liste.php -->
 <!DOCTYPE html>
 <html lang="fr">

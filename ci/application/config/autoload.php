@@ -133,3 +133,15 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array();
+
+/*
+| -------------------------------------------------------------------
+|  Auto-load Sessions
+| -------------------------------------------------------------------
+| Prototype:
+|
+|	$autoload['session'] = array('nom', 'mail');
+|
+
+*/
+$autoload['session'] = array();
