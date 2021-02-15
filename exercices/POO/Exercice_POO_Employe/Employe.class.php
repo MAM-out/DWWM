@@ -93,6 +93,8 @@ class Employe //extends Agence
     /*si le mois d'entrée est antérieur au mois actuel, ou bien, si le jour d'entrée est inférieur ou égal au jour actuel lorsque le mois d'entrée est égal au mois actuel, alors l’ancienneté est la différence entre l’année en cours et l’année d'entrée.
     sinon l’ancienneté est la différence entre l'(année en cours – 1) et l’année d'entrée.*/
  
+
+    // juste pour verifier 
     public function __toString()
     {
         $lesInfosEmployes = "";
@@ -134,6 +136,7 @@ class Employe //extends Agence
               $prime =  ($salaire_brut * 0.1);
           }
             return $prime;
+            echo 'l'ordre de transfert de la prime de ' .$prime. 'a bien été envoyé';
 
             // si date du mois est j=30 ou j=28 pour fev pour une année normale ou j=29 pour une année bisextile 
             // alors ordre = paiement de la prime

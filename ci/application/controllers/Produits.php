@@ -49,10 +49,10 @@ class Produits extends CI_Controller
         // MODIFIER
         public function modifier()
         {
-            $this->load->helper('form', 'url'); 
+            //$this->load->helper('form', 'url'); 
             $this->load->database();
 
-            $this->load->library('form_validation'); 
+            //$this->load->library('form_validation'); 
 
             // Requête de sélection de l'enregistrement souhaité, ici le produit 7 
             $produit = $this->db->query("SELECT * FROM produits");

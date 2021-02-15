@@ -1,14 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');      
 
-class Panier extends CI_Controller 
+class ajouterPanier extends CI_Controller 
 {
-
+    public function liste()
+    {
+    $this->load->view('header');
+    $this->load->view('footer');
+    $this->load->database();
+    $this->load->library('session');
+    }
 
     public function ajouter() 
-    {
+{
     // On récupère les données du formulaire 
-    $valeur = $this->input->post();  
+    $aData = $this->input->post();  
 
     // Au 1er article ajouté, création du panier car il n'existe pas
     if ($this->session->panier == null) 
@@ -16,8 +22,8 @@ class Panier extends CI_Controller
         // On créé un tableau pour stocker les informations du produit  
         $aPanier = array();
 
-        // On ajoute les infos du produit ($valeur) au tableau du panier ($aPanier) 
-        array_push($aPanier, $valeur);  
+        // On ajoute les infos du produit ($aData) au tableau du panier ($aPanier) 
+        array_push($aPanier, $aData);  
 
         // On stocke le panier dans une variable de session nommée 'panier'            
         $this->session->set_userdata("panier", $aPanier);
@@ -52,9 +58,9 @@ class Panier extends CI_Controller
          }
          else 
          { // sinon, le produit est ajouté dans le panier
-            array_push($aPanier, $valeur);
+            array_push($aPanier, $aData);
 
-            // On remet le tableau des produits que  
+            // On remet le tableau des produitss que  
             $this->session->panier = $aPanier;
             $this->load->view('produits/liste', $aView);
 
