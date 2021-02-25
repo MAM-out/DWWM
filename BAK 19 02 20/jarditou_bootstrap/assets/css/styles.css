@@ -1,0 +1,91 @@
+﻿body {
+    font-family: "Open Sans", sans-serif;
+}
+
+
+.website {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.tx-bold {
+    font-weight: bold;
+}
+
+li {
+    list-style: none;
+}
+
+.header,
+.footer {
+    display: flex;
+    grid-column: 1 / -1;
+}
+
+
+.align {
+        display: inline-block;
+    }
+
+#Logo {
+    width: 200px;
+    padding-bottom: 10px;
+}
+
+#slogan {
+    font-size: 20px;
+    margin-left: 200px;
+    padding-top:20px;
+
+}
+
+#banniere {
+
+    width: 100%;
+    margin-top: 5px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#menu, #menu a {
+    vertical-align: central;
+    width: 99%;
+    padding: 5px;
+    margin-bottom: 0px;
+    float: left;
+}
+
+
+
+article {
+    width: 65%;
+    padding-bottom: 30px;
+    padding-right: 5px;
+    float: left;
+}
+
+
+aside {
+    float: right;
+    width: 33%;
+    padding: 5px;
+    background: #aaa;
+    color: #ffffff;
+    margin-bottom:5px;
+}
+
+
+
+footer {
+   // float: inline-end;
+}
+
