@@ -1,4 +1,15 @@
 <?php
+/**
+* \brief Les valeurs du panier
+* \param  $panier        tableau récuppèrant les ≠ id ajoutées du panier
+* \param  $ids           tableau recuperant tooutes les id des produits du panier
+* \param  $quantite      nombre de produits de chaque id dans le panier
+* \panam  $products      tableau récuppérant les prix et id des produits selctionnés dans le panier
+* \panam  $product       un produit et son id et prix
+* \param  $product_id    id du produit selectionné  
+* \author Marion Mounier
+* \date 26/02/2020
+*/
 class panier 
 {
         private $DB;

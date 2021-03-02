@@ -1,4 +1,13 @@
 <?php
+/**
+* \brief connexion à la base de données
+* \param  $db   tableau récuppèrant les ≠ id ajoutées du panier
+* \param  $sql  valeurs a envoyer à la table, requete sql 
+* \param  $data parametre nomdutag => valeur
+* \param  $req   Récupération de toutes les lignes   
+* \author Marion Mounier
+* \date 26/02/2020
+*/
 Class DB
 {
     private $host = 'localhost';

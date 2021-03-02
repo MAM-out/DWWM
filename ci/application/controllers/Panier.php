@@ -3,65 +3,95 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Panier extends CI_Controller 
 {
-
+    public function afficherPanier()
+    {
+         $this->load->view('panier');
+    }
 
     public function ajouter() 
     {
     // On récupère les données du formulaire 
     $valeur = $this->input->post();  
 
-    // Au 1er article ajouté, création du panier car il n'existe pas
-    if ($this->session->panier == null) 
-    {
-        // On créé un tableau pour stocker les informations du produit  
-        $aPanier = array();
+        // Au 1er article ajouté, création du panier car il n'existe pas
+        if ($this->session->panier == null) 
+        {
+            // On créé un tableau pour stocker les informations du produit  
+            $aPanier = array();
 
-        // On ajoute les infos du produit ($valeur) au tableau du panier ($aPanier) 
-        array_push($aPanier, $valeur);  
+            // On ajoute les infos du produit ($valeur) au tableau du panier ($aPanier) 
+            array_push($aPanier, $valeur);  
 
-        // On stocke le panier dans une variable de session nommée 'panier'            
-        $this->session->set_userdata("panier", $aPanier);
+            // On stocke le panier dans une variable de session nommée 'panier'            
+            $this->session->set_userdata("panier", $aPanier);
 
-        // 
-     }
-     else
-     { // le panier existe (on a déjà mis au moins un article) 
-
-         // On récupère le contenu du panier en session           
-         $aPanier = $this->session->panier;
-
-         $pro_id = $this->input->post('pro_id');
-
-         $bSortie = FALSE;
-
-         // on cherche si le produit existe déjà dans le panier
-         foreach ($aPanier as $produit) 
-         {
-             if ($produit['pro_id'] == $pro_id)
-             {
-                  $bSortie = TRUE;
-             }
-         }
-
-         if ($bSortie) 
-         { // si le produit est déjà dans le panier, l'utilisateur est averti
-             echo '<div class="alert alert-danger">Ce produit est déjà dans le panier.</div>';
-
-             // On redirige sur la liste
-             redirect("produits/liste");
-         }
-         else 
-         { // sinon, le produit est ajouté dans le panier
-            array_push($aPanier, $valeur);
-
-            // On remet le tableau des produits que  
-            $this->session->panier = $aPanier;
-            $this->load->view('produits/liste', $aView);
-
-             // On redirige sur la liste
-             redirect("produits/liste");
-         }
+            // 
         }
-    }
+        else
+        { // le panier existe (on a déjà mis au moins un article) 
+
+            // On récupère le contenu du panier en session           
+            $aPanier = $this->session->panier;
+
+            $pro_id = $this->input->post('pro_id');
+
+            $bSortie = FALSE;
+
+            // on cherche si le produit existe déjà dans le panier
+            foreach ($aPanier as $produit) 
+            {
+                if ($produit['pro_id'] == $pro_id)
+                {
+                    $bSortie = TRUE;
+                }
+            }
+
+            if ($bSortie) 
+            { // si le produit est déjà dans le panier, l'utilisateur est averti
+                echo '<div class="alert alert-danger">Ce produit est déjà dans le panier.</div>';
+
+                // On redirige sur la liste
+                redirect("produits/liste");
+            }
+            else 
+            { // sinon, le produit est ajouté dans le panier
+                array_push($aPanier, $valeur);
+
+                // On remet le tableau des produits que  
+                $this->session->panier = $aPanier;
+                $this->load->view('produits/liste', $aView);
+
+                // On redirige sur la liste
+                redirect("produits/liste");
+            }
+            }
+        }
+        public function modifierQuantite($pro_id)
+        {
+            $aPanier = $this->session->panier;
+
+            $aTemp = array(); //création d'un tableau temporaire vide
+
+            // On parcourt le tableau produit après produit
+            for ($i = 0; $i < count($aPanier); $i++) 
+            {
+                if ($aPanier[$i]['pro_id'] !== $pro_id)
+                {
+                    array_push($aTemp, $aPanier[$i]);
+                }
+                else
+                {
+                    $aPanier[$i]['pro_qte']++;
+                    array_push($aTemp, $aPanier[$i]);
+                }
+            }
+
+            $aPanier = $aTemp;
+            unset($aTemp);
+            $this->session->set_userdata("panier", $aPanier);
+
+            // On réaffiche le panier 
+            redirect("panier/afficherPanier");
+        }
 
 }

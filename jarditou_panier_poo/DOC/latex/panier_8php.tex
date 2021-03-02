@@ -1,0 +1,62 @@
+\hypertarget{panier_8php}{}\doxysection{panier.\+php File Reference}
+\label{panier_8php}\index{panier.php@{panier.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{panier_8php_a43e5b5a819fedbd12b8cf5421ba6985e}{\$titre}} = \char`\"{}Votre panier\char`\"{}
+\item 
+\mbox{\hyperlink{panier_8php_a87b032cba06009e3467abf1c8018d960}{\$description}} = \char`\"{}Vous pouvez désormais procéder à la commande ou continuer vos achats sur votre site Jarditou\char`\"{}
+\item 
+\mbox{\hyperlink{panier_8php_af24e92ed6a9d45a19989253526012e03}{\$ids}} = array\+\_\+keys(\$\+\_\+\+SESSION\mbox{[}\textquotesingle{}panier\textquotesingle{}\mbox{]})
+\item 
+if(empty(\$ids)) \mbox{\hyperlink{panier_8php_a5995ee28b56956bb0e3ed86dd187d601}{else}}
+\item 
+\mbox{\hyperlink{panier_8php_a44da4c5b07408870c254cd4c30606c36}{foreach}} ( \$products as \$product)
+\item 
+\mbox{\hyperlink{panier_8php_a672d9707ef91db026c210f98cc601123}{endforeach}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{panier_8php_a87b032cba06009e3467abf1c8018d960}\label{panier_8php_a87b032cba06009e3467abf1c8018d960}} 
+\index{panier.php@{panier.php}!\$description@{\$description}}
+\index{\$description@{\$description}!panier.php@{panier.php}}
+\doxysubsubsection{\texorpdfstring{\$description}{$description}}
+{\footnotesize\ttfamily \$description = \char`\"{}Vous pouvez désormais procéder à la commande ou continuer vos achats sur votre site Jarditou\char`\"{}}
+
+\mbox{\Hypertarget{panier_8php_af24e92ed6a9d45a19989253526012e03}\label{panier_8php_af24e92ed6a9d45a19989253526012e03}} 
+\index{panier.php@{panier.php}!\$ids@{\$ids}}
+\index{\$ids@{\$ids}!panier.php@{panier.php}}
+\doxysubsubsection{\texorpdfstring{\$ids}{$ids}}
+{\footnotesize\ttfamily \$ids = array\+\_\+keys(\$\+\_\+\+SESSION\mbox{[}\textquotesingle{}panier\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{panier_8php_a43e5b5a819fedbd12b8cf5421ba6985e}\label{panier_8php_a43e5b5a819fedbd12b8cf5421ba6985e}} 
+\index{panier.php@{panier.php}!\$titre@{\$titre}}
+\index{\$titre@{\$titre}!panier.php@{panier.php}}
+\doxysubsubsection{\texorpdfstring{\$titre}{$titre}}
+{\footnotesize\ttfamily \$titre = \char`\"{}Votre panier\char`\"{}}
+
+\mbox{\Hypertarget{panier_8php_a5995ee28b56956bb0e3ed86dd187d601}\label{panier_8php_a5995ee28b56956bb0e3ed86dd187d601}} 
+\index{panier.php@{panier.php}!else@{else}}
+\index{else@{else}!panier.php@{panier.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily if (empty( \$ids)) else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{                            \mbox{\hyperlink{produits_8php_ae0ee57e07f23e6ad01602937224998cc}{\$products}} = \$DB-\/>query(\textcolor{stringliteral}{'SELECT * FROM produits WHERE pro\_id IN('} . implode(\textcolor{charliteral}{','}, \mbox{\hyperlink{panier_8php_af24e92ed6a9d45a19989253526012e03}{\$ids}}) .\textcolor{charliteral}{')'})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{panier_8php_a672d9707ef91db026c210f98cc601123}\label{panier_8php_a672d9707ef91db026c210f98cc601123}} 
+\index{panier.php@{panier.php}!endforeach@{endforeach}}
+\index{endforeach@{endforeach}!panier.php@{panier.php}}
+\doxysubsubsection{\texorpdfstring{endforeach}{endforeach}}
+{\footnotesize\ttfamily endforeach}
+
+\mbox{\Hypertarget{panier_8php_a44da4c5b07408870c254cd4c30606c36}\label{panier_8php_a44da4c5b07408870c254cd4c30606c36}} 
+\index{panier.php@{panier.php}!foreach@{foreach}}
+\index{foreach@{foreach}!panier.php@{panier.php}}
+\doxysubsubsection{\texorpdfstring{foreach}{foreach}}
+{\footnotesize\ttfamily foreach(\$products as \$product) (\begin{DoxyParamCaption}\item[{}]{\$products as }\end{DoxyParamCaption})}
+

@@ -1,4 +1,14 @@
 <?php
+/**
+* \brief fonctionnement du fil d'ariane
+* \param  $def	renvoi à l'accueil
+* \param  $chemin	recupere toute les étapes pour constituer le fil du parcours  
+* \param  $j    	compteur   
+* \param  $etapes	page active    
+* \param  $ttetapes toutes les pages necessaires pour arriver à l'active
+* \author Marion Mounier
+* \date 26/02/2020
+*/
 $def = "index";
 $chemin = $_SERVER['PHP_SELF'];
 $etapes = explode("/", $chemin);

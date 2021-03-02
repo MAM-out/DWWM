@@ -1,4 +1,6 @@
-
+<?php 
+echo form_open("ajouterpanier/liste"); 
+?>
 
 <h1>Mon panier</h1>
 
